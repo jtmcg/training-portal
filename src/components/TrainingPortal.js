@@ -109,6 +109,12 @@ export default class TrainingPortal extends Component {
         })
     }
 
+    _deleteTraining = (id) => {
+        const index = trainingList.map(training => training.id).indexOf(id);
+        trainingList.splice(index, 1);
+        this.forceUpdate()
+    }
+
     render() {
         const { searchText, createOrEditTrainingId, newTraining } = this.state;
         if (!createOrEditTrainingId) {
@@ -126,8 +132,9 @@ export default class TrainingPortal extends Component {
                         <div className="training-list">
                             <TrainingList
                                 filter={ searchText }
-                                trainingList={trainingList}
-                                editTraining={this._editTraining}
+                                trainingList={ trainingList }
+                                editTraining={ this._editTraining }
+                                deleteTraining={ this._deleteTraining }
                             />
                         </div>
                         <div className="upcoming-events">

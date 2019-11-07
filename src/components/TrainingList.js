@@ -15,6 +15,7 @@ export default function TrainingList(props) {
                     training={ training }
                     editTraining={ props.editTraining }
                     onCancel={ props.onCancel }
+                    deleteTraining={ props.deleteTraining }
                 />
     });
     

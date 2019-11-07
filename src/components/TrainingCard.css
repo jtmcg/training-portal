@@ -46,3 +46,13 @@
     opacity: 0.8;
 }
 
+.delete-training {
+    margin-right: auto;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    color: #FF55A5;
+}
+
+.delete-training:hover {
+    cursor: pointer;
+}

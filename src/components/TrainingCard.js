@@ -45,6 +45,7 @@ export default class TrainingCard extends Component {
                 </div>
                 <div className="training-card-footer">
                     <p className="creator">Scheduled By: {creator}</p>
+                    <div className="delete-training" onClick={ () => this.props.deleteTraining(id)}>Delete Training</div>
                     <form>
                         <button className="button" type="button" id="edit" onClick={ () => this.props.editTraining(id) }>
                             <span>Edit</span>
