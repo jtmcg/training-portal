@@ -8,23 +8,15 @@ export default function TrainingList(props) {
 
     trainingList = trainingList.filter(training => training.trainingName.includes(filter))
 
-    // const renderedTrainings = trainingList.map(training => {
+    var trainingListDepartments = trainingList.map((training, idx) => [training.department, idx]).sort();
 
-    //     return <TrainingCard
-    //                 key={ training.id }
-    //                 training={ training }
-    //                 filter={ props.filter }
-    //                 editTraining={ props.editTraining }
-    //                 onCancel={ props.onCancel }
-    //                 deleteTraining={ props.deleteTraining }
-    //             />
-    // });
+    const sortedTrainingList = trainingListDepartments.map(training => trainingList[training[1]])
 
     const renderedTrainings = [];
-    for (var i=0; i<trainingList.length; i++) {
+    for (var i=0; i<sortedTrainingList.length; i++) {
         renderedTrainings.push(<TrainingCard
-                                    key={ trainingList[i].id }
-                                    training={ trainingList[i] }
+                                    key={ sortedTrainingList[i].id }
+                                    training={ sortedTrainingList[i] }
                                     filter={ filter }
                                     editTraining={ props.editTraining }
                                     onCancel={ props.onCancel }
