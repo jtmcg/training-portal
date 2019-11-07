@@ -1,0 +1,38 @@
+.header-container {
+    width: 100%;
+    top: 0;
+    position: sticky;
+    background-color: #F6F6F6;
+    border: solid #F6F6F6 1px;
+    z-index: 1000;
+}
+
+.app-header {
+    font-size: 3rem;
+}
+
+.header-forms {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 25px;
+    align-items: center;
+}
+
+.header-form {
+    display: flex;
+    margin-left: 2%;
+}
+
+#search-form {
+    margin-right: auto;
+}
+
+.header-form input {
+    font-size: 25px;
+}
+
+.training-list-header {
+    margin-bottom: 1%;
+    margin-left: 3%;
+}
+

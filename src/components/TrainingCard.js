@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './TrainingCard.css';
+import './button.css';
 
 export default class TrainingCard extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export default class TrainingCard extends Component {
             <div className="training-card-container">
                 <div className="training-card-header">
                     <div className="name-department-room">
-                        <h3>{trainingName}</h3>
+                        <h3 className="training-card-name">{trainingName}</h3>
                         <p className="department-room"><i>{department}</i> - Room: {roomNum}</p>
                     </div>
                     <div className="date-time-duration">
@@ -37,15 +38,16 @@ export default class TrainingCard extends Component {
                         <p className="duration">Duration: {duration}</p>
                     </div>
                 </div>
-                <div className="details-container">
-                    <h3 className="details">Details:</h3>
-                    <p className="details-text">{description}</p>
+                <hr/>
+                <div className="description-container">
+                    <h4 className="description">Description:</h4>
+                    <p className="description-text">{description}</p>
                 </div>
                 <div className="training-card-footer">
                     <p className="creator">Scheduled By: {creator}</p>
                     <form>
-                        <button type="button" onClick={ () => this.props.editTraining(id) }>
-                            Edit
+                        <button className="button" type="button" id="edit" onClick={ () => this.props.editTraining(id) }>
+                            <span>Edit</span>
                         </button>
                     </form>
                 </div>

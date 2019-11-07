@@ -1,5 +1,6 @@
 import React from 'react';
 import TrainingCard from './TrainingCard';
+import './TrainingList.css';
 
 export default function TrainingList(props) {
     const filter = props.filter;
@@ -13,17 +14,13 @@ export default function TrainingList(props) {
                     key={ training.id }
                     training={ training }
                     editTraining={ props.editTraining }
+                    onCancel={ props.onCancel }
                 />
     });
     
     return (
         <div className="training-list-container">
-            <div className="training-list-header">
-                <h2>Trainings</h2>
-                <div className="rendered-training-list">
-                    {renderedTrainings}
-                </div>
-            </div>
+            {renderedTrainings}
         </div>
     )
 }

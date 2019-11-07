@@ -9,11 +9,31 @@ import EditTraining from './EditTraining';
 var trainingList = [
     {
         "id": "fd6ed836-10b4-4fc6-b07d-a28cee76558b",
-        "trainingName": "Test Training",
+        "trainingName": "Test Training 1",
         "department": "Testing Department",
         "roomNum": 101,
         "dateTime": new Date("2019-11-07T10:30:00"),
         "duration": "1hr",
+        "creator": "Admin",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet elit commodo, lobortis tortor nec, suscipit mi. Donec pharetra imperdiet neque, sit amet sodales sapien pellentesque nec. Pellentesque fermentum eu ligula aliquam vulputate. Donec eu felis in libero fringilla blandit. Aliquam volutpat tellus nec dui aliquam, et hendrerit urna vehicula. Proin dignissim erat vel neque consectetur mollis. Nulla aliquet varius molestie. Etiam vitae convallis nulla. Duis vel dui velit. Curabitur mollis id risus ac molestie."
+    },
+    {
+        "id": "fd6ed836-10b4-4fc6-b07d-a28cee76558c",
+        "trainingName": "Test Training 2",
+        "department": "Testing Department",
+        "roomNum": 102,
+        "dateTime": new Date("2019-11-09T10:30:00"),
+        "duration": "2hrs",
+        "creator": "Admin",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet elit commodo, lobortis tortor nec, suscipit mi. Donec pharetra imperdiet neque, sit amet sodales sapien pellentesque nec. Pellentesque fermentum eu ligula aliquam vulputate. Donec eu felis in libero fringilla blandit. Aliquam volutpat tellus nec dui aliquam, et hendrerit urna vehicula. Proin dignissim erat vel neque consectetur mollis. Nulla aliquet varius molestie. Etiam vitae convallis nulla. Duis vel dui velit. Curabitur mollis id risus ac molestie."
+    },
+    {
+        "id": "fd6ed836-10b4-4fc6-b07d-a28cee76558d",
+        "trainingName": "Test Training 3",
+        "department": "Testing Department",
+        "roomNum": 103,
+        "dateTime": new Date("2019-11-08T10:30:00"),
+        "duration": "All day",
         "creator": "Admin",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet elit commodo, lobortis tortor nec, suscipit mi. Donec pharetra imperdiet neque, sit amet sodales sapien pellentesque nec. Pellentesque fermentum eu ligula aliquam vulputate. Donec eu felis in libero fringilla blandit. Aliquam volutpat tellus nec dui aliquam, et hendrerit urna vehicula. Proin dignissim erat vel neque consectetur mollis. Nulla aliquet varius molestie. Etiam vitae convallis nulla. Duis vel dui velit. Curabitur mollis id risus ac molestie."
     },
@@ -77,21 +97,25 @@ export default class TrainingPortal extends Component {
         });
     }
 
+    _onCancel = () => {
+        this.setState({
+            createOrEditTrainingId: false,
+            newTraining: false,
+        })
+    }
+
     render() {
         const { searchText, createOrEditTrainingId, newTraining } = this.state;
         if (!createOrEditTrainingId) {
 
             return (
                 <div className="app-container">
-                    
-                    <div className="header-container">
-                        <Header
-                            searchText={ searchText }
-                            updateSearch={ this._updateSearch }
-                            handleSubmit={ this._handleSubmit }
-                            createNewTraining={ this._createNewTraining }
-                        />
-                    </div>
+                    <Header
+                        searchText={ searchText }
+                        updateSearch={ this._updateSearch }
+                        handleSubmit={ this._handleSubmit }
+                        createNewTraining={ this._createNewTraining }
+                    />
 
                     <div className="body-container">
                         <div className="training-list">
@@ -114,6 +138,7 @@ export default class TrainingPortal extends Component {
                     training={ trainingToEdit[0] }
                     newTraining={ newTraining }
                     updateTraining={ this._updateTraining }
+                    onCancel= { this._onCancel }
                 />
             )
         }

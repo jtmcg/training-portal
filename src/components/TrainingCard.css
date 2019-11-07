@@ -1,5 +1,48 @@
-.training-card-container{
+.training-card-container {
     margin: auto;
-    border: solid black 5px;
+    border: solid #414141 2px;
     border-radius: 5px;
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+    box-shadow: 2px 2px 4px 4px #555555d0;
 }
+
+.training-card-name {
+    margin: 0;
+}
+
+.training-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.name-department-room {
+    margin-right: auto;
+}
+
+.date-time {
+    margin-top: 0;
+}
+
+.description-text {
+    width: 98%;
+    margin: auto;
+    border: solid #97979780 2px;
+    border-radius: 4px;
+    padding: 0.5%;
+}
+
+.training-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5%;
+}
+
+.creator {
+    margin-right: auto;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
