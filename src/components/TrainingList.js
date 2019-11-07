@@ -12,17 +12,16 @@ export default function TrainingList(props) {
 
     const sortedTrainingList = trainingListDepartments.map(training => trainingList[training[1]])
 
-    const renderedTrainings = [];
-    for (var i=0; i<sortedTrainingList.length; i++) {
-        renderedTrainings.push(<TrainingCard
-                                    key={ sortedTrainingList[i].id }
-                                    training={ sortedTrainingList[i] }
-                                    filter={ filter }
-                                    editTraining={ props.editTraining }
-                                    onCancel={ props.onCancel }
-                                    deleteTraining={ props.deleteTraining }
-                                />)
-    }
+    const renderedTrainings = sortedTrainingList.map(training => {
+        return (<TrainingCard
+                key={ training.id }
+                training={ training }
+                filter={ filter }
+                editTraining={ props.editTraining }
+                onCancel={ props.onCancel }
+                deleteTraining={ props.deleteTraining }
+            />)
+    })
     
     return (
         <div className="training-list-container">
