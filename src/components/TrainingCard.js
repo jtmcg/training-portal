@@ -15,6 +15,7 @@ export default class TrainingCard extends Component {
             duration: this.props.training.duration,
             creator: this.props.training.creator,
             description: this.props.training.description,
+            filter: this.props.filter,
         }
     }
 
@@ -24,13 +25,23 @@ export default class TrainingCard extends Component {
         return time
     }
 
+    highlightSearchText = () => {
+        var trainingTitle = this.state.trainingName; 
+        const indexOfSearchString = trainingTitle.indexOf(this.props.filter);
+        if (indexOfSearchString >= 0) {
+            trainingTitle = <React.Fragment>{trainingTitle.substring(0,indexOfSearchString)}<span className='highlight'>{trainingTitle.substring(indexOfSearchString, indexOfSearchString+this.props.filter.length)}</span>{trainingTitle.substring(indexOfSearchString+this.props.filter.length)}</React.Fragment>;
+        } 
+        return trainingTitle
+    }
+
     render() {
-        const { id, trainingName, department, roomNum, date, time, duration, creator, description } = this.state;
+        const { id, department, roomNum, date, time, duration, creator, description } = this.state;
+
         return (
             <div className="training-card-container">
                 <div className="training-card-header">
                     <div className="name-department-room">
-                        <h3 className="training-card-name">{trainingName}</h3>
+                        <h3 className="training-card-name" id="training-card-name">{this.highlightSearchText()}</h3>
                         <p className="department-room"><i>{department}</i> - Room: {roomNum}</p>
                     </div>
                     <div className="date-time-duration">

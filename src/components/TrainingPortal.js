@@ -111,8 +111,12 @@ export default class TrainingPortal extends Component {
 
     _deleteTraining = (id) => {
         const index = trainingList.map(training => training.id).indexOf(id);
-        trainingList.splice(index, 1);
-        this.forceUpdate()
+        const trainingName = trainingList[index].trainingName;
+
+        if (window.confirm("Are you sure you want to delete "+trainingName+"?")){
+            trainingList.splice(index, 1);
+            this.forceUpdate()
+        }
     }
 
     render() {

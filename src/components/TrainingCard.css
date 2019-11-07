@@ -56,3 +56,7 @@
 .delete-training:hover {
     cursor: pointer;
 }
+
+.highlight {
+    background-color: #FF55A580;
+}
