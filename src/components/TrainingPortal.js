@@ -97,7 +97,12 @@ export default class TrainingPortal extends Component {
         });
     }
 
-    _onCancel = () => {
+    _onCancel = (id) => {
+        if (this.state.newTraining) {
+            const index = trainingList.map(training => training.id).indexOf(id);
+            trainingList.splice(index, 1);
+        }
+
         this.setState({
             createOrEditTrainingId: false,
             newTraining: false,

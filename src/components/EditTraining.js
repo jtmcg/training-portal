@@ -97,7 +97,7 @@ export default class EditTraining extends Component {
     }
     
     render() {
-        const { trainingName, department, roomNum, date, time, duration, creator, description } = this.state;
+        const { id, trainingName, department, roomNum, date, time, duration, creator, description } = this.state;
         var title = "Edit Training";
         if (this.props.newTraining) {
             title="Create New Training"
@@ -211,7 +211,7 @@ export default class EditTraining extends Component {
                         <p className="required-label"><span style={{color: "#FF55A5"}}>*</span><i>required</i></p>
                     </div>
                     <div className="submit-buttons-container">
-                        <button className="button" id="cancel" onClick={ this.props.onCancel }><span>Cancel</span></button>
+                        <button className="button" id="cancel" onClick={ () => this.props.onCancel(id) }><span>Cancel</span></button>
                         <button type="submit" className="button" id="submit"><span>Submit</span></button>
                     </div>
                 </form>
