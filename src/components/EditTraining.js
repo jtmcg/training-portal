@@ -31,55 +31,6 @@ export default class EditTraining extends Component {
         return time
     }
 
-    updateTrainingName = (event) => {
-        const trainingNameField = event.target.value;
-        this.setState({
-            trainingName: trainingNameField,
-        });
-    }
-
-    updateDepartment = (event) => {
-        const departmentField = event.target.value;
-        this.setState({
-            department: departmentField,
-        })
-    }
-
-    updateRoomNumber = (event) => {
-        const roomField = event.target.value;
-        this.setState({
-            roomNum: roomField,
-        })
-    }
-
-    updateDate = (event) => {
-        const dateField = event.target.value;
-        this.setState({
-            date: dateField,
-        })
-    }
-
-    updateTime = (event) => {
-        const timeField = event.target.value;
-        this.setState({
-            time: timeField,
-        })
-    }
-
-    updateDuration = (event) => {
-        const durationField = event.target.value;
-        this.setState({
-            duration: durationField,
-        })
-    }
-
-    updateDescription = (event) => {
-        const descriptionField = event.target.value;
-        this.setState({
-            description: descriptionField,
-        })
-    }
-
     onSubmit = () => {
         const { id, trainingName, department, roomNum, date, time, duration, creator, description } = this.state;
         const trainingData = {
@@ -113,7 +64,7 @@ export default class EditTraining extends Component {
                             <input 
                                 type="text"
                                 id="training-name-text"
-                                onChange={this.updateTrainingName}
+                                onChange={ e => this.setState({ trainingName: e.target.value }) }
                                 placeholder="Training Name"
                                 value={trainingName}
                                 required
@@ -125,7 +76,7 @@ export default class EditTraining extends Component {
                                 name="department" 
                                 id="department-text"
                                 value={department}
-                                onChange={this.updateDepartment}
+                                onChange={ e => this.setState({ department: e.target.value }) }
                                 required
                             >
                                 <option value="">--Select Department--</option>
@@ -142,7 +93,7 @@ export default class EditTraining extends Component {
                                 name="room-number" 
                                 id="room-number-text"
                                 value={roomNum}
-                                onChange={this.updateRoomNumber}
+                                onChange={ e => this.setState({ roomNum: e.target.value }) }
                                 required
                             >
                                 <option value="">--#--</option>
@@ -157,7 +108,7 @@ export default class EditTraining extends Component {
                             <input 
                                 type="date"
                                 id="date-text"
-                                onChange={this.updateDate}
+                                onChange={ e => this.setState({ date: e.target.value }) }
                                 value={date}
                                 required
                             />
@@ -167,7 +118,7 @@ export default class EditTraining extends Component {
                             <input 
                                 type="time"
                                 id="time-text"
-                                onChange={this.updateTime}
+                                onChange={ e => this.setState({ time: e.target.value }) }
                                 value={time}
                                 required
                             />
@@ -178,7 +129,7 @@ export default class EditTraining extends Component {
                                 name="duration" 
                                 id="duration-text"
                                 value={duration}
-                                onChange={this.updateDuration}
+                                onChange={ e => this.setState({ duration: e.target.value }) }
                                 required
                             >
                                 <option value="">--duration--</option>
@@ -204,7 +155,7 @@ export default class EditTraining extends Component {
                             rows="10"
                             type="description"
                             id="description-text"
-                            onChange={this.updateDescription}
+                            onChange={ e => this.setState({ description: e.target.value }) }
                             placeholder="What is this training about?"
                             value={description}
                         />

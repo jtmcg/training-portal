@@ -1,6 +1,6 @@
 .header-container {
     width: 100%;
-    top: 0;
+    top: -115px;
     position: sticky;
     background-color: #F6F6F6;
     border: solid #F6F6F6 1px;
